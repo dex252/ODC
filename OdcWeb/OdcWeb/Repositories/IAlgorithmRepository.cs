@@ -1,7 +1,11 @@
-﻿namespace OdcWeb.Repositories
+﻿using OdcWeb.Models.Algoritm;
+using System.Collections.Generic;
+
+namespace OdcWeb.Repositories
 {
     public interface IAlgorithmRepository
     {
-        string GetInputParams(decimal id);
+        List<Algorithm> GetAllAlgorithms(string guid = null, string version = null);
+        string GetInputParams(string id);
     }
 }

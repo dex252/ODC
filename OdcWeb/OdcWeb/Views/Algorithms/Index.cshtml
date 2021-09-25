@@ -1,0 +1,20 @@
+﻿@{
+    ViewBag.Title = "Алгоритмы";
+    ViewBag.IsWebpack = true;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<link rel="stylesheet" href="~/bundles/algorithmsBundle.css" type="text/css" />
+
+<div class="card border">
+    <div class="card-body">
+        <div id="content"></div>
+    </div>
+</div>
+
+@section scripts{
+    <script src="~/bundles/algorithmsBundle.js"></script>
+}
+
+@await Html.PartialAsync("~/Views/Algorithms/Templates/ListTemplate.cshtml")
+@await Html.PartialAsync("~/Views/Algorithms/Templates/SelectedTemplate.cshtml")

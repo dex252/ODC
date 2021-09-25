@@ -25,6 +25,7 @@ namespace OdcWeb
 
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddMvc();
             services.AddControllersWithViews();
 #if MOCK
             AddMockServices(services);

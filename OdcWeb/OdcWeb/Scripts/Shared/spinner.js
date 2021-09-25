@@ -1,6 +1,4 @@
-﻿import './common';
-
-const spinner = $('#modal-spinner');
+﻿const spinner = $('#modal-spinner');
 
 export function showSpinner() {
     // @ts-ignore

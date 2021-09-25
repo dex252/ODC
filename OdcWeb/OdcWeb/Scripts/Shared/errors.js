@@ -1,6 +1,4 @@
-﻿import './common';
-
-const error = $('#modal-error');
+﻿const error = $('#modal-error');
 
 /**
  * 
