@@ -1,0 +1,9 @@
+﻿namespace Odc.ViewModels.Shared.Errors
+{
+    public class ErrorViewModel
+    {
+        public string RequestId { get; set; }
+
+        public string Message { get; set; }
+    }
+}

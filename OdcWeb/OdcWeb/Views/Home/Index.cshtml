@@ -1,0 +1,14 @@
+﻿@{
+    ViewBag.Title = "Russian ODC";
+    ViewBag.IsWebpack = true;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<link href="~/bundles/homeBundle.css" />
+
+<div>Home page</div>
+<input id="auth-modal-show" type="hidden" value="@Model" />
+
+@section scripts{
+    <script src="~/bundles/homeBundle.js"></script>
+}
