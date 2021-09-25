@@ -1,1 +1,68 @@
-﻿
+﻿<script id="params-template" type="text/x-jsrender">
+    <div class="card bg-light border">
+        <div class="card-body">
+            {{for #data.Params itemVar="~item"}}
+            <div class="pb-2">
+                <div>Параметр: {{: ~item.Name}}</div>
+                {{if ~item.Type == "INPUT"}}
+                <input type="text"
+                       class="form-control"
+                       data-id="{{: ~item.Id}}"
+                       value="{{if ~item.Value != null}}{{: ~item.Value.Value}}{{/if}}" />
+
+                {{else ~item.Type == "RADIO"}}
+                <fieldset id="RADIO-{{: ~item.Id}}">
+                    {{for ~item.Select itemVar="~selectValue"}}
+                    <div>
+                        <input type="radio"
+                               id="{{:  ~selectValue.Id}}-{{: ~item.Id}}"
+                               {{if  ~selectValue.Selected}} checked="checked" {{/if}}
+                               name="{{: ~item.Id}}">
+                        <label for="{{: ~selectValue.Id}}-{{: ~item.Id}}">{{:  ~selectValue.Value}}</label>
+                    </div>
+                    {{/for}}
+                </fieldset>
+
+                {{else ~item.Type == "CHECKBOX"}}
+                <fieldset id="CHECKBOX-{{: ~item.Id}}">
+                    {{for ~item.Select itemVar="~selectValue"}}
+                    <div>
+                        <input type="checkbox"
+                               id="{{:  ~selectValue.Id}}-{{: ~item.Id}}"
+                               {{if  ~selectValue.Selected}} checked={{/if}}
+                               name="{{: ~item.Id}}">
+                        <label for="{{: ~selectValue.Id}}-{{: ~item.Id}}">{{:  ~selectValue.Value}}</label>
+                    </div>
+                    {{/for}}
+                </fieldset>
+
+                {{else ~item.Type == "SELECT"}}
+                <select id="SELECT-{{: ~item.Id}}"
+                        class="col-4">
+                    {{if ~item.Select.length > 1}}
+                    <option value="">...</option>
+                    {{/if}}
+                    {{for ~item.Select itemVar="~selectValue"}}
+                    <option id="{{: ~selectValue.Id}}"
+                            {{if ~selectValue.Selected}} selected{{/if}}>
+                        {{: ~selectValue.Value}}
+                    </option>
+                    {{/for}}
+                </select>
+
+                {{else ~item.Type == "LIST"}}
+                <div id="LIST-{{: ~item.Id}}">
+                    <div id="list-container-{{: ~item.Id}}"></div>
+                    <button class="btn btn-outline-primary custom-button list-add-button" 
+                            id="button-{{: ~item.Id}}" 
+                            data-target="#list-container-{{: ~item.Id}}">+</button>
+                </div>
+               
+
+                {{/if}}
+            </div>
+            {{/for}}
+        </div>
+    </div>
+
+</script>

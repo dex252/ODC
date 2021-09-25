@@ -11,7 +11,7 @@ namespace OdcWeb.Repositories
             throw new NotImplementedException();
         }
 
-        public string GetInputParams(string id)
+        public InputParams GetInputParams(string id)
         {
             throw new NotImplementedException();
         }

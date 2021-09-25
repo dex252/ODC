@@ -25,7 +25,8 @@
       "select": [
         {
           "value": "radio-1",
-          "id": "1"
+          "id": "1",
+          "selected": true
         },
         {
           "value": "radio-2",
@@ -45,11 +46,13 @@
         },
         {
           "value": "checkbox-2",
-          "id": "2"
+          "id": "2",
+          "selected": true
         },
         {
           "value": "checkbox-3",
-          "id": "3"
+          "id": "3",
+          "selected": true
         },
         {
           "value": "checkbox-4",
@@ -59,7 +62,10 @@
     },
     {
       "name": "select",
-      "value": {},
+      "value": {
+        "value": "select-3",
+        "id": "3"
+      },
       "id": "72845f20-761b-4bed-ad13-3a31be0c8952",
       "type": "SELECT",
       "select": [
@@ -73,7 +79,8 @@
         },
         {
           "value": "select-3",
-          "id": "3"
+          "id": "3",
+          "selected": true
         }
       ]
     },

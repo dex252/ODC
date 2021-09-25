@@ -26,5 +26,13 @@ namespace OdcWeb.Controllers
             var algorithms = AlgorithmsRepository.GetAllAlgorithms(guid, version);
             return new JsonResponse<List<Algorithm>>(MessageStatus.ok, "Готово", algorithms);
         }
+
+        [HttpGet]
+        public IActionResult GetInputParams(string guid)
+        {
+            var inputParams = AlgorithmsRepository.GetInputParams(guid);
+
+            return new JsonResponse<InputParams>(MessageStatus.ok, "Готово", inputParams);
+        }
     }
 }

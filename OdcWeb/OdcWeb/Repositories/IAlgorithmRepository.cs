@@ -6,6 +6,6 @@ namespace OdcWeb.Repositories
     public interface IAlgorithmRepository
     {
         List<Algorithm> GetAllAlgorithms(string guid = null, string version = null);
-        string GetInputParams(string id);
+        InputParams GetInputParams(string id);
     }
 }

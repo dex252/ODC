@@ -12,10 +12,16 @@ namespace OdcWeb.Repositories.Mock
         {
             FileReader = fileReader;
         }
-        public new string GetInputParams(string id)
+        public new InputParams GetInputParams(string id)
         {
-            var json = FileReader.ReadFile("InputParams1.json");
-            var result = ClobResponce<string>(json);
+            string json = null;
+
+            if (id == "9c7dd571-a4db-44cd-90da-73403c844184")
+            {
+                json = FileReader.ReadFile("InputParams1.json");
+            }
+            
+            var result = ClobResponce<InputParams>(json);
 
             return result;
         }

@@ -1,5 +1,5 @@
 ﻿<script id="list-template" type="text/x-jsrender">
-    <div class="row">
+    <div class="row pb-1">
         <div class="col-3">
             <select id="algorithm-list" class="col-12">
                 {{for #data.Data itemVar="~item"}}
@@ -10,7 +10,21 @@
         </div>
 
         <div id="description" class="col-9">
-
+            <div class="card">
+                <div class="card-body align-self-center">
+                    <img src="/img/ui.spinner.gif" />
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-3"></div>
+        <div id="params" class="col-9">
+            <div class="card">
+                <div class="card-body align-self-center">
+                    <img src="/img/ui.spinner.gif" />
+                </div>
+            </div>
         </div>
     </div>
 
