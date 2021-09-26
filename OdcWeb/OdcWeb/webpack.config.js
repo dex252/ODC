@@ -23,15 +23,14 @@ let config = {
     library: 'OdcWeb'
   },
   resolve: {
-      extensions: ['.js', 'css'],
+      extensions: ['.js', '.css'],
     alias: {
       libs: path.resolve(__dirname, 'wwwroot/lib'),
       scripts: path.resolve(__dirname, 'Scripts/src'),
       Scripts: path.resolve(__dirname, 'Scripts/'),
       libs: path.resolve(__dirname, 'node_modules'),
       styles: path.resolve(__dirname, 'Content'),
-      shared: path.resolve(__dirname, 'Scripts/Custom/Shared'),
-      shared: path.resolve(__dirname, 'ViewModels')
+      shared: path.resolve(__dirname, 'Scripts/Shared'),
     }
   },
   optimization: {
@@ -39,7 +38,7 @@ let config = {
     splitChunks: {
       cacheGroups: {
         vendor: {
-          test: /[\\/]node_modules[\\/]|[\\/]Content[\\/]Site\.css/,
+              test: /[\\/]node_modules[\\/]|[\\/]Content[\\/]Site\.css/,
           name: 'vendor',
           chunks: 'all'
         }

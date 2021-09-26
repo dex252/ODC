@@ -1,0 +1,77 @@
+{
+  "params": [
+    {
+      "name": "x-value",
+      "id": "8dc0e4be-a558-4914-b151-074379c005eb",
+      "type": "INPUT"
+    },
+    {
+      "name": "y-value",
+      "id": "4cec4f86-20ac-48e8-8705-a4832ddb011a",
+      "type": "INPUT"
+    },
+    {
+      "name": "radio",
+      "id": "fe502cb3-ccb3-4e4b-8ab7-04b93e4ccd98",
+      "type": "RADIO",
+      "select": [
+        {
+          "value": "radio-1",
+          "id": "1"
+        },
+        {
+          "value": "radio-2",
+          "id": "2"
+        }
+      ]
+    },
+    {
+      "name": "checkbox",
+      "id": "56037a6e-bcf4-46fa-a7e6-1c5e18573251",
+      "type": "CHECKBOX",
+      "select": [
+        {
+          "value": "checkbox-1",
+          "id": "1"
+        },
+        {
+          "value": "checkbox-2",
+          "id": "2"
+        },
+        {
+          "value": "checkbox-3",
+          "id": "3"
+        },
+        {
+          "value": "checkbox-4",
+          "id": "3"
+        }
+      ]
+    },
+    {
+      "name": "select",
+      "id": "72845f20-761b-4bed-ad13-3a31be0c8952",
+      "type": "SELECT",
+      "select": [
+        {
+          "value": "select-1",
+          "id": "1"
+        },
+        {
+          "value": "select-2",
+          "id": "2"
+        },
+        {
+          "value": "select-3",
+          "id": "3"
+        }
+      ]
+    },
+    {
+      "name": "mass",
+      "id": "72845f20-761b-4bed-ad13-3a31be0c8952",
+      "type": "LIST"
+    }
+  ]
+
+}

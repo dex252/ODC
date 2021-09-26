@@ -3,23 +3,23 @@
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
     <CopyRefAssembliesToPublishDirectory>false</CopyRefAssembliesToPublishDirectory>
+    <Configurations>Debug;Release;Mock</Configurations>
   </PropertyGroup>
 
   <ItemGroup>
+    <Content Remove="Repositories\Mock\Files\InputParams0.json" />
+    <Content Remove="Repositories\Mock\Files\InputParams1.json" />
+    <Content Remove="Repositories\Mock\Files\InputParams2.json" />
+    <Content Remove="Repositories\Mock\Files\InputParams3.json" />
     <Content Remove="wwwroot\img\ui.spinner.gif" />
   </ItemGroup>
 
   <ItemGroup>
-    <None Remove="Content\modals\index.css" />
     <None Remove="Content\site.css" />
     <None Remove="webpack.config.js" />
   </ItemGroup>
 
   <ItemGroup>
-    <Content Include="Content\modals\index.css">
-      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
-      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-    </Content>
     <Content Include="Content\site.css">
       <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
@@ -28,17 +28,27 @@
   </ItemGroup>
 
   <ItemGroup>
+    <EmbeddedResource Include="Repositories\Mock\Files\InputParams0.json" />
+    <EmbeddedResource Include="Repositories\Mock\Files\InputParams2.json" />
+    <EmbeddedResource Include="Repositories\Mock\Files\InputParams3.json" />
+    <EmbeddedResource Include="Repositories\Mock\Files\InputParams1.json" />
     <EmbeddedResource Include="wwwroot\img\ui.spinner.gif" />
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation" Version="5.0.3" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation" Version="3.1.19" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Repositories\" />
     <Folder Include="Services\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Models\Algoritm\Algorithm.cs">
+      <Generator>DtsGenerator</Generator>
+      <LastGenOutput>Algorithm.cs.d.ts</LastGenOutput>
+    </Compile>
   </ItemGroup>
 
 </Project>

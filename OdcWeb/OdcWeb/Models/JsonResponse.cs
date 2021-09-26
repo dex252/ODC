@@ -7,7 +7,7 @@ namespace OdcWeb.Models
     public sealed class JsonResponse<T> : ContentResult
         where T : class
     {
-        public JsonResponse(MessageStatus status, string message, string requestId = null, T content = null)
+        public JsonResponse(MessageStatus status, string message, T content = null, string requestId = null)
         {
             var response = new
             {
@@ -20,5 +20,6 @@ namespace OdcWeb.Models
             Content = JsonConvert.SerializeObject(response);
             ContentType = "application/json";
         }
+
     }
 }

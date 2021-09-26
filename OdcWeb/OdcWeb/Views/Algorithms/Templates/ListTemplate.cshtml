@@ -1,0 +1,48 @@
+﻿<script id="list-template" type="text/x-jsrender">
+    <div class="row pb-1">
+        <div class="col-3">
+            <select id="algorithm-list" class="col-12">
+                {{for #data.Data itemVar="~item"}}
+                <option id="{{: ~item.Guid}}">{{: ~item.Name}}</option>
+                {{/for}}
+            </select>
+
+        </div>
+
+        <div id="description" class="col-9">
+            <div class="card">
+                <div class="card-body align-self-center">
+                    <img src="/img/ui.spinner.gif" />
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-3">
+            <div class="position-relative h-100">
+                <div class="position-absolute bottom-sticky-element">
+                    <button id="save-button" class="btn btn-outline-primary">Сохранить</button>
+                </div>
+            </div>
+        </div>
+        <div id="params" class="col-9">
+            <div class="card">
+                <div class="card-body align-self-center">
+                    <img src="/img/ui.spinner.gif" />
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</script>
+
+<script id="description-template" type="text/x-jsrender">
+    <div class="card bg-light border">
+        <div class="card-body">
+            <div>Название: {{: #data.Name}}</div>
+            <div>Версия: {{: #data.Version}}</div>
+            <div>Описание: {{: #data.Description}}</div>
+        </div>
+    </div>
+</script>

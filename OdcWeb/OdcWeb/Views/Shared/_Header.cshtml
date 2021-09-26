@@ -9,7 +9,7 @@
         <div class="navbar-collapse collapse d-sm-inline-flex">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item">
-                    <a class="nav-link btn navigation-page-bar menu-item" asp-area="" asp-controller="Home" asp-action="Index">Пользователи</a>
+                    <a class="nav-link btn navigation-page-bar menu-item" asp-area="" asp-controller="Algorithms" asp-action="Index">Алгоритмы</a>
                 </li>
             </ul>
             <form class="form-inline my-2 my-lg-0">
@@ -17,11 +17,13 @@
                     <div id="navigation-name" class="align-self-center pr-2"></div>
                     @{
                         var button = "undefined";
-                        #if DEBUG
-                        button = "debug";
-                        #elif RELEASE
+#if MOCK
+                        button = "mock";
+#elif RELEASE
                         button = "release";
-                        #endif
+#else
+                        button = "debug";
+#endif
                     }
                     <button id="navigation-enter-button" class="btn btn-outline-primary my-2 my-sm-0 mx-1" type="button">@button</button>
                 </div>

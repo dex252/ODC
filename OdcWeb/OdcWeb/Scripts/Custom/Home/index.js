@@ -1,4 +1,4 @@
-﻿import '../../Shared/common';
+﻿import 'shared/common';
 
 $(() => {
 
