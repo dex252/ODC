@@ -1,0 +1,27 @@
+{
+  "params": [
+    {
+      "name": "map",
+      "id": "5dc0e4be-a558-4914-b151-074379c905eb",
+      "type": "MAP",
+      "select": [
+        {
+          "value": "127.5",
+          "name": "from-x"
+        },
+        {
+          "value": "128.3",
+          "name": "to-x"
+        },
+        {
+          "value": "17.5",
+          "name": "from-y"
+        },
+        {
+          "value": "-127.5",
+          "name": "to-y"
+        }
+      ]
+    }
+  ]
+}

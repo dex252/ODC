@@ -1,0 +1,18 @@
+{
+  "params": [
+    {
+      "name": "x-value",
+      "value": {
+        "value": "127.5"
+      },
+      "id": "8dc0e4be-a558-4914-b151-074379c005eb",
+      "type": "INPUT"
+    },
+    {
+      "name": "y-value",
+      "id": "4cec4f86-20ac-48e8-8705-a4832ddb011a",
+      "type": "INPUT"
+    }
+  ]
+
+}

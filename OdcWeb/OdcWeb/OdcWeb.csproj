@@ -7,7 +7,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Content Remove="Repositories\Mock\Files\InputParams0.json" />
     <Content Remove="Repositories\Mock\Files\InputParams1.json" />
+    <Content Remove="Repositories\Mock\Files\InputParams2.json" />
+    <Content Remove="Repositories\Mock\Files\InputParams3.json" />
     <Content Remove="wwwroot\img\ui.spinner.gif" />
   </ItemGroup>
 
@@ -25,6 +28,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <EmbeddedResource Include="Repositories\Mock\Files\InputParams0.json" />
+    <EmbeddedResource Include="Repositories\Mock\Files\InputParams2.json" />
+    <EmbeddedResource Include="Repositories\Mock\Files\InputParams3.json" />
     <EmbeddedResource Include="Repositories\Mock\Files\InputParams1.json" />
     <EmbeddedResource Include="wwwroot\img\ui.spinner.gif" />
   </ItemGroup>

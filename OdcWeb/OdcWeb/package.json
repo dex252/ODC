@@ -15,7 +15,8 @@
     "js-guid": "^1.0.0",
     "jsrender": "^1.0.3",
     "jstree": "3.3.7",
-    "popper.js": "^1.16.0"
+    "popper.js": "^1.16.0",
+    "world-map": "0.0.9"
   },
   "description": "",
   "devDependencies": {

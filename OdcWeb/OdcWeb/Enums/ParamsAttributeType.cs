@@ -6,6 +6,7 @@
         RADIO = 20,
         CHECKBOX = 30,
         SELECT = 40,
-        LIST = 50
+        LIST = 50,
+        MAP = 60
     }
 }

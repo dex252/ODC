@@ -52,17 +52,56 @@
 
                 {{else ~item.Type == "LIST"}}
                 <div id="LIST-{{: ~item.Id}}">
-                    <div id="list-container-{{: ~item.Id}}"></div>
-                    <button class="btn btn-outline-primary custom-button list-add-button" 
-                            id="button-{{: ~item.Id}}" 
-                            data-target="#list-container-{{: ~item.Id}}">+</button>
+                    <div id="list-container-{{: ~item.Id}}">
+                        {{if ~item.Select != null && ~item.Select.length > 0}}
+                        {{for ~item.Select itemVar="~selectValue"}}
+                        {{include ~selectValue tmpl="#list-item-template"/}}
+                        {{/for}}
+                        {{/if}}
+                    </div>
+                    <button class="btn btn-outline-primary custom-button list-add-button"
+                            id="button-{{: ~item.Id}}"
+                            data-target="#list-container-{{: ~item.Id}}">
+                        +
+                    </button>
                 </div>
-               
 
+                {{else ~item.Type == "MAP"}}
+                <div id="MAP-{{: ~item.Id}}">
+                    <div id="world-map-{{: ~item.Id}}" class="d-flex"></div>
+                     {{if ~item.Select != null && ~item.Select.length > 0}}
+                        {{for ~item.Select itemVar="~selectValue"}}
+                        <input name="{{: ~selectValue.Name}}"
+                               value="{{: ~selectValue.Value}}"
+                               type="hidden"/>
+                        {{/for}}
+                     {{/if}}
+                </div>
                 {{/if}}
             </div>
             {{/for}}
         </div>
+    </div>
+
+</script>
+
+<script id="list-item-template" type="text/x-jsrender">
+    <div class="row pl-3 pb-1" id="list-{{: #data.Id}}">
+        <input type="text"
+               class="form-control col-3"
+               id="name-list-{{: #data.Id}}"
+               placeholder="Ключ"
+               value="{{if #data.Name != null}}{{: #data.Name}} {{/if}}" />
+        <input type="text"
+               class="form-control col-8"
+               id="value-list-{{: #data.Id}}"
+               placeholder="Значение"
+               value="{{if #data.Value != null}}{{: #data.Value}} {{/if}}" />
+        <button class="col-1 btn btn-outline-primary custom-button list-remove-button"
+                id="button-list-{{: #data.Id}}"
+                data-target="#list-{{: #data.Id}}">
+            -
+        </button>
     </div>
 
 </script>

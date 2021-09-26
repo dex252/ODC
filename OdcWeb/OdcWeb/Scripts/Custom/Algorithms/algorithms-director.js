@@ -3,6 +3,8 @@ import {showSpinner, hideSpinner} from '../../Shared/spinner';
 import {renderErrorMessage, renderError} from '../../Shared/errors';
 import { Guid } from 'js-guid';
 
+const WorldMap = require("world-map");
+
 const container = $('#content');
 const ALGORITHM_LIST_TAMPLATE = '#list-template';
 
@@ -15,11 +17,16 @@ const INPUT_PARAMS_TEMPLATE ='#params-template';
 
 const LIST_ADD_BUTTON = '.list-add-button';
 const LIST_REMOVE_BUTTON = '.list-remove-button';
+const LIST_ITEM_TEMPLATE = '#list-item-template';
+
+const SAVE_BUTTON = '#save-button';
 
 export class AlgorithmsDirector{
     constructor(){  
         this.AlgorithmsList = undefined;
         this.CurrentAlgorithm = undefined;
+        this.ActiveMapContainer = undefined;
+        this.WorldMapsId = [];
     }
 
     async Init(){
@@ -66,24 +73,10 @@ export class AlgorithmsDirector{
             let target = $(e.currentTarget);
             let container = target.data('target');
             let guid = Guid.newGuid();
+            let item = {Id: guid}
 
-            let html=
-            `<div class="row pl-3 pb-1" id="list-${guid}">
-             <input type="text"
-                   class="form-control col-3"
-                   id="name-list-${guid}"
-                   placeholder="Ключ"
-                   value="" />
-             <input type="text"
-                   class="form-control col-8"
-                   id="value-list-${guid}"
-                   placeholder="Значение"
-                   value="" />
-                   <button class="col-1 btn btn-outline-primary custom-button list-remove-button" 
-                   id="button-list-${guid}" 
-                   data-target="#list-${guid}">-</button>
-             </div>`
-
+            let template =  $(LIST_ITEM_TEMPLATE).render(item);
+            var html = new DOMParser().parseFromString(template, "text/html").querySelector(`#list-${guid}`);
             $(container).append(html)
         });
 
@@ -93,6 +86,29 @@ export class AlgorithmsDirector{
 
             $(container).remove();
         });
+
+        $(document).on('click', SAVE_BUTTON, (e) =>{
+            //TODO: обновить данные в модели
+            DIRECTOR.UpdateValues();
+            //TODO: сохранить значения на сервере
+            DIRECTOR.SaveValues();
+        });
+
+        $(window).on('resize', (e) =>{
+            if(!DIRECTOR.ActiveMapContainer){
+                return;
+            }
+
+            this.WorldMapsId.forEach(e => DIRECTOR.SetWorldMapParametres(e));
+        });
+    }
+
+    UpdateValues(){
+        //....
+    }
+
+    SaveValues(){
+        //....
     }
 
     async SetCurrentAlgorithm(){
@@ -109,6 +125,45 @@ export class AlgorithmsDirector{
         paramsContainer.html(
             $(INPUT_PARAMS_TEMPLATE).render(data)
         );
+
+        this.InitWorldMapAttributes(data.Params);
+    }
+
+    InitWorldMapAttributes(params){
+        this.ActiveMapContainer = undefined;
+        this.WorldMapsId = [];
+
+        let maps = params.filter(e => e.Type == 'MAP');
+
+        if(maps.length == 0){
+            return;
+        }
+
+        this.SetResizeWorldMapContainer(maps[0]);
+
+        for (let attr of maps){
+            let id = `world-map-${attr.Id}`;
+            this.WorldMapsId.push(id);
+
+            this.SetWorldMapParametres(id);
+        }
+    }
+
+    SetResizeWorldMapContainer(map){
+        this.ActiveMapContainer = $(`#world-map-${map.Id}`);
+    }
+
+    SetWorldMapParametres(id){
+        $(`#${id}`).empty();
+
+        let mapParametres ={
+            width: this.ActiveMapContainer.innerWidth(),
+            zoom: true,
+            landsColor: '#008282',
+            landsBorder: '#fff',
+        };
+
+        var map = new WorldMap(id , mapParametres);
     }
 
     /**

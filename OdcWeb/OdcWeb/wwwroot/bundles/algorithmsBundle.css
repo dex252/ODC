@@ -73,3 +73,7 @@ body {
 .custom-button{
     width:2.4rem;
 }
+
+.bottom-sticky-element {
+    bottom: 0;
+}

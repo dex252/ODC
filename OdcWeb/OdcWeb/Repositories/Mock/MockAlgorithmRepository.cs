@@ -18,9 +18,24 @@ namespace OdcWeb.Repositories.Mock
 
             if (id == "9c7dd571-a4db-44cd-90da-73403c844184")
             {
+                json = FileReader.ReadFile("InputParams0.json");
+            }
+
+            if (id == "b66bebec-b912-4893-a8b0-ed9c7c3c39c9")
+            {
                 json = FileReader.ReadFile("InputParams1.json");
             }
-            
+
+            if (id == "3f083020-d82c-4385-82c9-72762c6c4855")
+            {
+                json = FileReader.ReadFile("InputParams2.json");
+            }
+
+            if (id == "aef480bd-45b3-4aa3-b0bb-826f2a0efab3")
+            {
+                json = FileReader.ReadFile("InputParams3.json");
+            }
+
             var result = ClobResponce<InputParams>(json);
 
             return result;
